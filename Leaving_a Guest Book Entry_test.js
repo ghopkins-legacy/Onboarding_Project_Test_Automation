@@ -1,23 +1,15 @@
 Feature('Leaving a Guest Book entry');
 
-Scenario('task 1', ({ I }) => {
-    I.amOnPage("/us/obituaries/chicagotribune/name/virginia-gruchalski-obituary?pid=196167379");
+Scenario('task 1', ({ I , guestBookPage}) => {
+    I.amOnPage(guestBookPage.path);
     I.wait(1);
 
-    I.seeElement("//h2[@data-component='NameHeadingText']");
+    I.seeElement(guestBookPage.fields.nameHeadingText);
 
     // // Guest BOOK:
-    I.scrollIntoView({xpath: "//div[@data-component='GuestbookBox']"}, { behavior: "smooth", block: "center", inline: "center" });
+    I.scrollIntoView(guestBookPage.fields.scrollView, guestBookPage.fields.scrollBehavior);
     I.wait(2);
 
-    // need to click inside in order to view other options and submit button
-    I.click({xpath: "//input[@data-component='TextBoxField']"});
-
-    I.fillField({xpath: "//input[@data-component='TextBoxField']"}, "Gilbert Test");
-    I.fillField({xpath: "//textarea[@data-component='TextAreaField']"}, "I am so sorry for the loss.");
-
-    I.fillField({xpath: "//input[@data-component='EmailField']"}, "ghopkins@legacy.com");
-
-    I.click("Submit Your Message");
+    guestBookPage.createGuestBookEntry("Gilbert Test", "I am so sorry for the loss.", "ghopkins@legacy.com");
     I.wait(2);
 });
