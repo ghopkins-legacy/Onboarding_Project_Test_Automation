@@ -18,7 +18,10 @@ exports.config = {
       port: 4444,
       restart: true
       // windowSize: '1920x1680'
-    }
+    },
+    Db: {
+      require: './db_helper.js',
+    },
   },
   include: {
     I: './steps_file.js',
