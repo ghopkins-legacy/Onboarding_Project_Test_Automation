@@ -22,6 +22,12 @@ exports.config = {
     Db: {
       require: './db_helper.js',
     },
+    REST: {
+      endpoint: 'https://www.qa-legacy.com',
+      prettyPrintJson: true,
+      onRequest: (request) => {
+      }
+    }
   },
   include: {
     I: './steps_file.js',
