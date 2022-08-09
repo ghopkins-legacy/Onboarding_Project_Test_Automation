@@ -1,4 +1,11 @@
 .env
 /node_modules
-.idea
 node_modules
+.idea
+.idea/
+.idea/vcs.xml
+.idea/modules.xml
+.idea/Onboarding_Project_Test_Automation.iml
+.idea/workspace.xml
+.idea/.gitignore
+output
